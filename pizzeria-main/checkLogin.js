@@ -47,7 +47,8 @@ if (paginasProtegidas.includes(actual) && !user) {
     }
 
     // Redirigir a login automáticamente
-    setTimeout(() => {
-        window.location.href = "login.html";
-    }, 1500);
-}
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+    }
+});
