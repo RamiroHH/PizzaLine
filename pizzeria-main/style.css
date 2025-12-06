@@ -1,0 +1,2058 @@
+/* ===== main page ===== */
+
+/* Reset básico */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff8f0;
+    color: #333;
+}
+
+/* ===== HEADER ===== */
+.headerPrincipal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    height: 90px;
+}
+
+#login-warning {
+  display:none;
+              padding:20px;
+              background:#ffe5e5;
+              border:2px solid #d32f2f;
+              color:#b71c1c;
+              font-weight:bold;
+              text-align:center;
+              margin:20px;
+              border-radius:10px;
+}
+
+#inicio453 {
+  background:#d32f2f;
+              color:white;
+              padding:10px 20px;
+              border-radius:6px;
+              text-decoration:none;
+}
+
+#logoPizzaLinePng {
+  width:150px;
+  height:100px;
+  border-radius:8px;
+}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+
+.headerPrincipal .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerPrincipal .logo img {
+    width: 10px;
+    height: 80px;
+}
+
+.navPrincipal ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin-left: -200px;
+}
+
+.navPrincipal ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 50px;
+}
+
+.login-btn a {
+    background-color: #fff;
+    color: #d32f2f;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== MAIN ===== */
+.mainPrincipal {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Promociones */
+.promociones h2 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+.promos {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.promo-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.promo-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ===== ASIDE ===== */
+.asidePrincipal {
+    background-color: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.asidePrincipal section {
+    margin-bottom: 20px;
+}
+
+.asidePrincipal h3 {
+    color: #d32f2f;
+    margin-bottom: 8px;
+}
+
+.bancos img {
+    width: 150px;
+    margin: 5px;
+}
+
+/* ===== FOOTER ===== */
+.footerPrincipal {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* ===== BOTÓN FLOTANTE CARRITO ===== */
+#btn-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btn-flotante:hover {
+    background-color: #b71c1c;
+}
+
+/* Contador totalmente dentro del botón */
+#contador-carrito {
+    position: absolute;
+    top: 4px;              /* ajusta según el tamaño del botón */
+    right: 4px;            /* ajusta según el tamaño del botón */
+    background-color: #ff9800;
+    color: white;
+    font-size: 7px;        /* más pequeño */
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 50%;
+    min-width: 14px;       /* círculo pequeño pero legible */
+    height: 14px;          /* igual que min-width para mantener forma circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+
+/* ===== end of main page ===== */
+
+/* ===== START CARRITO ===== */
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #fff8f0;
+    color: #333;
+}
+
+/* ===== AVISO LOGIN ===== */
+#login-warning {
+    display: none;
+    padding: 20px;
+    background: #ffe5e5;
+    border: 2px solid #d32f2f;
+    color: #b71c1c;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+#warningCarritoBtn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #d32f2f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#warningCarritoBtn:hover {
+    background: #b71c1c;
+}
+
+/* ===== HEADER (igual estilo que headerLogin) ===== */
+.headerCarrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d32f2f;
+    color: white;
+    padding: 15px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===== MENSAJE GENERAL ===== */
+#msg-box {
+    display: none;
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    background: #fff3cd;
+    border: 1px solid #ffcc00;
+    border-radius: 10px;
+    font-weight: bold;
+    max-width: 600px;
+}
+
+/* ===== TÍTULO CARRITO ===== */
+#headerCarrito {
+    text-align: center;
+    margin: 25px 0;
+    color: #d32f2f;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* ===== LISTA DEL CARRITO ===== */
+.carrito-lista {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffe5e5;
+    border-radius: 10px;
+}
+
+/* === ADICIONAL PARA CENTRAR CONTENEDOR === */
+#carrito-container {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Cada item */
+.carrito-item {
+    background: white;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Controles */
+.carrito-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-controles button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Eliminar */
+.eliminar {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ===== TOTAL ===== */
+#carrito-total {
+    text-align: center;
+    font-size: 24px;
+    color: #d32f2f;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* ===== ACCIONES ===== */
+#accionesCarrito {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-vaciar,
+.btn-finalizar {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-vaciar {
+    background-color: #999;
+    color: white;
+}
+
+.btn-finalizar {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* ===== BOTÓN VOLVER FIJO ===== */
+#volverCarrito {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+#btnVolverCarrito {
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#btnVolverCarrito:hover {
+    background-color: #0b7dda;
+}
+
+/* ===== FOOTER (igual estilo que footerLogin) ===== */
+.footerCarrito {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .carrito-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .carrito-controles {
+        justify-content: flex-start;
+    }
+
+    #accionesCarrito button {
+        width: 90%;
+        margin: 5px auto;
+        display: block;
+    }
+}
+
+/* ===== END CARRITO ===== */
+
+
+
+/* INICIO DE CARTA */
+/* Fondo general */
+#bodyCarta {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #8d1111;
+}
+
+#cartaLogoPng{
+  height: 100px;
+  width: 150px;
+}
+
+/* Título */
+#tituloCarta {
+  text-align: center;
+  font-family: "Special Gothic Expanded One", sans-serif;
+  color: hsl(64, 92%, 63%);
+  margin-top: 25px;
+  font-size: 38px;
+  letter-spacing: 2px;
+}
+
+/* Contenedor principal */
+#containerCarta {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Carta completa */
+.carta {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  max-width: 1000px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Cada seccion */
+.carta section {
+  width: 48%;
+  margin-bottom: 25px;
+}
+
+/* Títulos de sección */
+.carta section h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* Lista general */
+.listaPizzas,
+.listaBebidas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Cada ítem */
+.listaPizzas li,
+.listaBebidas li {
+  background: #c4c1c249;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid #e6d2c3;
+}
+
+/* Nombre del producto */
+.listaPizzas h3,
+.listaBebidas h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+/* Descripción */
+.listaPizzas p,
+.listaBebidas p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+/* Precio */
+.precio {
+  font-weight: bold;
+  font-size: 18px;
+  color: #1a8f1a;
+  margin-top: 10px;
+}
+
+/* Footer */
+#footerCarta {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background: #ffe8d1;
+  color: #333;
+}
+
+#iconPizza, #iconBebidas {
+  display: block;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+/* Aviso login (estaba con estilos inline en HTML) */
+#login-warning {
+  display: none;
+  padding: 20px;
+  background: #ffe5e5;
+  border: 2px solid #d32f2f;
+  color: #b71c1c;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+#login-warning-link {
+  display: inline-block;
+  background: #d32f2f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Botón carrito */
+#boton-carrito {
+  background: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Buscador */
+.busqueda-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.busqueda-wrap input {
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* FIN CARTA */
+
+
+/* ===== start login ===== */
+
+/* Reset general (igual al original) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #fff8f0;
+    color: #333;
+}
+
+/* ===== HEADER LOGIN (misma estética que header original) ===== */
+.headerLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d32f2f;
+    color: white;
+    padding: 15px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ===== FORM LOGIN (misma estética que .registro original) ===== */
+.registro {
+    background-color: #ffe5e5;
+    text-align: center;
+    padding: 30px;
+    max-width: 400px;
+    margin: 40px auto;
+    border-radius: 10px;
+}
+
+.registro h2 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.registro form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.registro input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
+
+.registro button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.registro button:hover {
+    background-color: #b71c1c;
+}
+
+.registro a {
+    color: #d32f2f;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== FOOTER LOGIN (misma estética que footer original) ===== */
+.footerLogin {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ===== end login ===== */
+
+
+/* --- start sucursales section --- */
+
+/* Contenedor general */
+.sucursales {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.sucursales h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #d32f2f; /* rojo estilo PizzaLine */
+}
+
+/* Contenedor de tarjetas (usa mismo estilo que promos iniciales) */
+.promos {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Tarjetas individuales */
+.promo-card {
+    background: #fff;
+    width: 280px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* misma sombra del css original */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover con efecto elegante */
+.promo-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.promo-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    color: #c62828;
+}
+
+.promo-card p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+#logoPizza56 {
+  width: 150px;
+  height: 100px;
+}
+
+/* --- end sucursales section --- */
+
+
+/* INICIO REGISTRO */
+/* Fondo general */
+#bodyRegistro {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(rgba(213, 10, 10, 0.35), rgba(0, 0, 0, 0.831)), url(images/fondoPizza.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+}
+
+/* Título principal */
+#h1Registro {
+  text-align: center;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #ffffff;
+  margin-bottom: 35px;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, #000000ac 0%, #00000053 100%);
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(230, 57, 70, 0.5);
+  position: relative;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Contenedor del formulario */
+#formulario {
+  background: rgba(255, 255, 255, 0.98);
+  padding: 40px 45px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 107, 53, 0.4);
+}
+
+/* Cada campo */
+form div {
+  margin-bottom: 25px;
+}
+
+/* Etiquetas */
+.labelReg {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  color: #2c2c2c;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+}
+
+/* Inputs */
+#nombre,
+#apellido,
+#telefono,
+#email,
+#password {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Focus en inputs */
+#nombre:focus,
+#apellido:focus,
+#telefono:focus,
+#email:focus,
+#password:focus {
+  outline: none;
+  border-color: #ff6b35;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Botón de envío */
+#botonReg {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #dc2020 0%, #df7171 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 20px rgb(0, 0, 0);
+  position: relative;
+  overflow: hidden;
+}
+
+#botonReg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+#botonReg:hover {
+  background: linear-gradient(135deg, #ff6b35 0%, #e63946 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.6);
+}
+
+#botonReg:hover::before {
+  left: 100%;
+}
+
+#botonReg:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #h1Registro {
+    font-size: 32px;
+    padding: 18px 30px;
+  }
+  
+  #formulario {
+    padding: 30px 25px;
+  }
+}
+
+/* FIN REGISTRO */
+
+/* INICIO INFO */
+#infoTodo {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#bodyInfo {
+  font-family: "Open Sans", sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* HEADER */
+#headerInfo {
+  background: #c41e1e;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#h1Info {
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  color: #ffd700;
+  font-size: 48px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#navInfo {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.aInfo {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.aInfo:hover {
+  background: #ffffff;
+  color: #c41e1e;
+}
+
+/* SECCIONES */
+.sectionInfo {
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 40px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+}
+
+.h2SectionInfo {
+  font-family: "Bebas Neue", sans-serif;
+  color: #c41e1e;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  border-bottom: 4px solid #ffd700;
+  padding-bottom: 10px;
+}
+
+.h3SectionInfo {
+  color: #c41e1e;
+  font-size: 28px;
+  margin: 25px 0 15px;
+  font-weight: 700;
+}
+
+.pSectionInfo {
+  line-height: 1.8;
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.imgSectionInfo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 25px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* INICIO */
+#inicio {
+  text-align: center;
+  background: linear-gradient(135deg, #fff 0%, #ffe8e8 100%);
+}
+
+#inicio img {
+  max-width: 300px;
+}
+
+#inicio p {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+/* HISTORIA */
+
+#logoPizza22{
+  width: 150px;
+  height: 100x;
+}
+
+#historia hr {
+  border: none;
+  border-top: 2px dashed #ffd700;
+  margin: 30px 0;
+}
+
+#historia blockquote {
+  background: #fff8dc;
+  border-left: 5px solid #c41e1e;
+  padding: 20px 25px;
+  margin: 25px 0;
+  font-style: italic;
+  border-radius: 8px;
+}
+
+#historia blockquote p {
+  color: #666;
+  text-align: left;
+}
+
+#historia ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#historia ul li {
+  background: #fff0f0;
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-left: 4px solid #c41e1e;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+#historia ul li::before {
+  content: "🍕 ";
+  margin-right: 10px;
+}
+
+/* GALERÍA */
+#galeria {
+  background: linear-gradient(135deg, #ffe8e8 0%, #fff 100%);
+}
+
+#galeria figure {
+  margin: 30px 0;
+  text-align: center;
+}
+
+#galeria figure img {
+  border: 5px solid #ffd700;
+}
+
+#galeria figcaption {
+  margin-top: 12px;
+  font-weight: 600;
+  color: #c41e1e;
+  font-size: 15px;
+}
+
+/* CONTACTO */
+#contacto {
+  background: #c41e1e;
+  color: #ffffff;
+}
+
+#contacto h2 {
+  color: #ffd700;
+  border-bottom-color: #ffffff;
+}
+
+#contacto h3 {
+  color: #ffd700;
+  margin-top: 30px;
+}
+
+#contacto p {
+  text-align: left;
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+#contacto strong {
+  color: #ffd700;
+}
+/* FIN INFO */
+
+/*BOTON PARA VOLVER*/
+#btnVolver {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #FFD700;
+  border: 3px solid #D2691E;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+}
+
+#btnVolver:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.pizzaIcono {
+  font-size: 28px;
+  margin-bottom: 2px;
+}
+
+.textoVolver {
+  font-size: 10px;
+  font-weight: bold;
+  color: #8B4513;
+  text-transform: uppercase;
+}
+/*FIN BOTON*/
+
+#grafCont {
+  width: 600px; margin:40px auto;
+}
+
+/* ADMINISTRACION */
+
+.page-administracion {
+    background: #f2f2f2;
+    color: #333;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* NAVBAR superior */
+.page-administracion nav {
+    background: #2f2f2f;
+    color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-administracion nav h2 {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Botón logout */
+.page-administracion #btn-logout {
+    background: #e63946;
+    border: none;
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.page-administracion #btn-logout:hover {
+    background: #c72f3c;
+    transform: translateY(-1px);
+}
+
+/* MAIN centrado */
+.page-administracion main {
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tarjeta central del panel admin */
+.page-administracion .admin-container {
+    background: #ffffff;
+    padding: 40px 30px;
+    width: 420px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Lista de opciones */
+.page-administracion .admin-container ul {
+    list-style: none;
+}
+
+.page-administracion .admin-container li {
+    margin-bottom: 15px;
+}
+
+/* Botones de navegación admin */
+.page-administracion .admin-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #444444;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 15px;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.15s ease,
+                box-shadow 0.15s ease;
+    font-weight: 500;
+}
+
+.page-administracion .admin-btn:hover {
+    background: #666666;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* GESTIONAR MENU*/
+
+.page-gestionar-menu {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    padding-bottom: 40px;
+}
+
+/* NAV superior */
+.page-gestionar-menu .menu-nav {
+    background: #2f2f2f;
+    padding: 15px 25px;
+    border-bottom: 2px solid #444;
+}
+
+.page-gestionar-menu .btn-volver {
+    background: #555;
+    color: #fff;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: 0.2s ease-in-out;
+}
+
+.page-gestionar-menu .btn-volver:hover {
+    background: #777;
+}
+
+/* CONTENEDOR CENTRAL */
+.page-gestionar-menu .menu-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* BOTONES PRINCIPALES */
+.page-gestionar-menu .menu-btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    background: #444;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.page-gestionar-menu .menu-btn:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+/* AGREGAR ITEM*/
+
+.page-agregar-item {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAV superior */
+.page-agregar-item .ai-nav {
+    background: #2f2f2f;
+    color: #ffffff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-agregar-item .ai-nav h2 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.page-agregar-item .ai-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-agregar-item .ai-btn-back:hover {
+    background: #777;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.page-agregar-item .ai-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.page-agregar-item .ai-container {
+    background: #ffffff;
+    padding: 30px 25px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIO */
+.page-agregar-item #form-agregar {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-agregar-item #form-agregar label {
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.page-agregar-item #form-agregar input[type="text"],
+.page-agregar-item #form-agregar input[type="number"],
+.page-agregar-item #form-agregar textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.page-agregar-item #form-agregar textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Radios y checkbox */
+.page-agregar-item .ai-radio-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 4px;
+}
+
+.page-agregar-item .ai-check-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Botón submit */
+.page-agregar-item .ai-btn-submit {
+    margin-top: 15px;
+    padding: 10px 16px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.page-agregar-item .ai-btn-submit:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+/* Mensaje */
+.page-agregar-item #mensaje {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* AGREGAR PROMOS*/ 
+
+.page-agregar-promos {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.page-agregar-promos .ap-nav {
+    background: #2f2f2f;
+    color: #ffffff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-agregar-promos .ap-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-agregar-promos .ap-btn-back:hover {
+    background: #777;
+}
+
+/* CONTENIDO PRINCIPAL */
+.page-agregar-promos .ap-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+}
+
+.page-agregar-promos .ap-container {
+    background: #ffffff;
+    padding: 30px 25px;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIO */
+.page-agregar-promos #form-promos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-agregar-promos label {
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.page-agregar-promos input[type="text"],
+.page-agregar-promos input[type="number"],
+.page-agregar-promos textarea,
+.page-agregar-promos select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.page-agregar-promos textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.page-agregar-promos .ap-check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* BOTÓN SUBMIT */
+.page-agregar-promos .ap-btn-submit {
+    margin-top: 15px;
+    padding: 10px 16px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.page-agregar-promos .ap-btn-submit:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+/* Mensaje */
+.page-agregar-promos #mensaje {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* =====================================
+   Estilos solo para eliminarElementos.html
+   ===================================== */
+
+.page-eliminar-elementos {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAV BAR */
+.page-eliminar-elementos .ee-nav {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-eliminar-elementos .ee-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-eliminar-elementos .ee-btn-back:hover {
+    background: #777;
+}
+
+/* MAIN */
+.page-eliminar-elementos .ee-main {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* CARDS (cada sección) */
+.page-eliminar-elementos .ee-card {
+    background: #fff;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.page-eliminar-elementos .ee-card h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+}
+
+.page-eliminar-elementos .ee-card h3 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* CONTENEDORES DE LISTA */
+.page-eliminar-elementos #items-visibles,
+.page-eliminar-elementos #items-no-visibles,
+.page-eliminar-elementos #promos-visibles,
+.page-eliminar-elementos #promos-no-visibles {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    min-height: 40px;
+}
+
+/* =============================================
+   Mejoras visuales para los items/promos listados
+   ============================================= */
+
+.page-eliminar-elementos .ee-item,
+.page-eliminar-elementos .ee-promo {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 18px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+}
+
+.page-eliminar-elementos .ee-item:hover,
+.page-eliminar-elementos .ee-promo:hover {
+    background: #f9f9f9;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Botones dentro del item */
+.page-eliminar-elementos .ee-item button,
+.page-eliminar-elementos .ee-promo button {
+    margin-right: 8px;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.2s;
+}
+
+/* Botón Ocultar */
+.page-eliminar-elementos .ee-item .btn-ocultar,
+.page-eliminar-elementos .ee-promo .btn-ocultar {
+    background: #555;
+    color: white;
+}
+
+.page-eliminar-elementos .ee-item .btn-ocultar:hover,
+.page-eliminar-elementos .ee-promo .btn-ocultar:hover {
+    background: #777;
+}
+
+/* Botón Eliminar */
+.page-eliminar-elementos .ee-item .btn-eliminar,
+.page-eliminar-elementos .ee-promo .btn-eliminar {
+    background: #e63946;
+    color: white;
+}
+
+.page-eliminar-elementos .ee-item .btn-eliminar:hover,
+.page-eliminar-elementos .ee-promo .btn-eliminar:hover {
+    background: #c72f3c;
+}
+
+/* =============================================
+   Estilos solo para adminPedidos.html
+   ============================================= */
+
+.page-admin-pedidos {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.page-admin-pedidos .ap-nav {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-admin-pedidos .ap-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-admin-pedidos .ap-btn-back:hover {
+    background: #777;
+}
+
+/* MAIN */
+.page-admin-pedidos .ap-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.page-admin-pedidos .ap-container {
+    background: #fff;
+    padding: 30px 25px;
+    width: 95%;
+    max-width: 950px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* TÍTULO */
+.page-admin-pedidos h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+/* TABLA */
+.page-admin-pedidos .ap-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.page-admin-pedidos .ap-table thead {
+    background: #2f2f2f;
+    color: #fff;
+}
+
+.page-admin-pedidos .ap-table th,
+.page-admin-pedidos .ap-table td {
+    padding: 12px 14px;
+    text-align: left;
+}
+
+.page-admin-pedidos .ap-table tbody tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+.page-admin-pedidos .ap-table tbody tr:hover {
+    background: #ececec;
+    cursor: pointer;
+}
+
+/* SELECT de estado */
+.page-admin-pedidos select {
+    padding: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Botones dentro de la tabla */
+.page-admin-pedidos button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.page-admin-pedidos button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* ============================================
+   Estilos solo para gestionarRoles.html
+   ============================================ */
+
+.page-gestionar-roles {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.page-gestionar-roles .gr-nav {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-gestionar-roles .gr-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-gestionar-roles .gr-btn-back:hover {
+    background: #777;
+}
+
+/* MAIN */
+.page-gestionar-roles .gr-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* CARD */
+.page-gestionar-roles .gr-container {
+    background: #fff;
+    padding: 30px 25px;
+    width: 95%;
+    max-width: 480px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* FORMULARIO */
+.page-gestionar-roles #form-agregar-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.page-gestionar-roles input[type="text"],
+.page-gestionar-roles input[type="password"],
+.page-gestionar-roles select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Checkbox */
+.page-gestionar-roles .gr-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+/* BOTÓN SUBMIT */
+.page-gestionar-roles .gr-btn-submit {
+    background: #444;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.page-gestionar-roles .gr-btn-submit:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+/* Mensaje */
+.page-gestionar-roles #mensaje {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+/* ================================
+   Logueo de administración
+   ================================ */
+
+.page-logueo-admin {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-logueo-admin .la-main {
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+}
+
+.page-logueo-admin .la-card {
+    background: #ffffff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-logueo-admin .la-card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.page-logueo-admin .la-card label {
+    font-weight: 500;
+}
+
+.page-logueo-admin .la-card input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.page-logueo-admin .la-btn {
+    margin-top: 8px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: #2f2f2f;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.page-logueo-admin .la-btn:hover {
+    background: #444444;
+    transform: translateY(-2px);
+}
+
+.page-logueo-admin .la-mensaje {
+    min-height: 18px;
+    font-size: 13px;
+}
+
+.page-logueo-admin .la-mensaje.error {
+    color: #e63946;
+}
+
+.page-logueo-admin .la-mensaje.ok {
+    color: #2e7d32;
+}
+
+/* ============================================
+   Cambiar contraseña (adminChangePassword.html)
+   ============================================ */
+
+.page-admin-change-pass {
+    background: #f4f4f4;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+.page-admin-change-pass .acp-nav {
+    background: #2f2f2f;
+    color: #fff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #444;
+}
+
+.page-admin-change-pass .acp-btn-back {
+    background: #555;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-admin-change-pass .acp-btn-back:hover {
+    background: #777;
+}
+
+/* MAIN & CARD */
+.page-admin-change-pass .acp-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.page-admin-change-pass .acp-container {
+    background: #fff;
+    padding: 30px 25px;
+    width: 95%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.page-admin-change-pass .acp-container h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.page-admin-change-pass .acp-help {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* LISTA DE USUARIOS */
+.page-admin-change-pass #usuarios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* CADA USUARIO */
+.page-admin-change-pass .acp-user-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.page-admin-change-pass .acp-user-row:hover {
+    background: #f0f0f0;
+}
+
+.page-admin-change-pass .acp-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-admin-change-pass .acp-user-name {
+    font-weight: 600;
+}
+
+.page-admin-change-pass .acp-user-role {
+    font-size: 13px;
+    color: #666;
+}
+
+/* BOTÓN CAMBIAR CONTRASEÑA */
+.page-admin-change-pass .acp-btn-change {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: #444;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.page-admin-change-pass .acp-btn-change:hover {
+    background: #666;
+    transform: translateY(-2px);
+}
+
+.listaPromos {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}

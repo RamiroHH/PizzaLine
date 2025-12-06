@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body class="page-gestionar-roles">
+
+    <nav class="gr-nav">
+        <h2>Crear usuarios</h2>
+        <a href="administracion.html" class="gr-btn-back">← Volver</a>
+    </nav>
+
+    <main class="gr-main">
+        <section class="gr-container">
+            <form id="form-agregar-usuario">
+
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+
+                <label for="rol">Tipo de usuario</label>
+                <select id="rol" required>
+                    <option value="" disabled selected>Seleccionar tipo...</option>
+                    <option value="USER">Usuario (cliente)</option>
+                    <option value="ADMIN">Administrador</option>
+                    <option value="ADMIN_PEDIDOS">Encargado de pedidos</option>
+                    <option value="DELIVERY">Delivery</option>
+                </select>
+
+                <label class="gr-checkbox">
+                    <input type="checkbox" id="activo" checked>
+                    Activo
+                </label>
+
+                <button type="submit" class="gr-btn-submit">Crear usuario</button>
+            </form>
+
+            <div id="mensaje"></div>
+        </section>
+    </main>
+
+    <script src="gestionarRoles.js"></script>
+
+</body>
+
+
+</html>

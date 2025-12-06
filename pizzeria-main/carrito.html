@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito - PizzaLine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="headerCarrito">🛒 Tu Carrito</header>
+
+    <!-- ===== AVISO LOGIN ===== -->
+    <div id="login-warning">
+        ⚠ Necesitas iniciar sesión para continuar  
+        <br><br>
+        <a href="login.html" id="warningCarritoBtn">Ir al login</a>
+    </div>
+
+    <!-- ===== MENSAJES ===== -->
+    <div id="msg-box"></div>
+
+    <!-- LOGIN CHECK -->
+    <script src="checkLogin.js"></script>
+
+    <!-- ===== LISTA DEL CARRITO ===== -->
+    <div id="carrito-container" class="carrito-lista"></div>
+
+    <!-- ===== TOTAL ===== -->
+    <h2 id="carrito-total">Total: $0</h2>
+
+    <!-- ===== ACCIONES ===== -->
+    <div id="accionesCarrito">
+        <button id="btnVaciarCarrito" class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+        <button id="btnFinalizarCarrito" class="btn-finalizar" onclick="finalizarPedido()">Finalizar pedido</button>
+    </div>
+
+    <!-- ===== BOTÓN VOLVER ===== -->
+    <div id="volverCarrito">
+        <a id="btnVolverCarrito" href="carta.html">← Volver</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footerCarrito">
+        PizzaLine © 2025 - Todos los derechos reservados
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="orders.js"></script>
+    <script src="carrito.js"></script>
+
+</body>
+</html>

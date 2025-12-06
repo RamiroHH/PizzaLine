@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administración</title>
+
+    
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body class="page-logueo-admin">
+
+    <main class="la-main">
+        <form id="form-login-admin" class="la-card">
+            <h2>Ingreso a Administración</h2>
+
+            <label for="usuarioAdmin">Usuario</label>
+            <input type="text" id="usuarioAdmin" autocomplete="username" required>
+
+            <label for="passwordAdmin">Contraseña</label>
+            <input type="password" id="passwordAdmin" autocomplete="current-password" required>
+
+            <div id="la-mensaje" class="la-mensaje"></div>
+
+            <button type="submit" class="la-btn">Ingresar</button>
+        </form>
+    </main>
+
+
+    <script src="logueoAdmin.js"></script>
+</body>
+</html>

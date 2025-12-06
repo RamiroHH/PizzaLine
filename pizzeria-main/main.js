@@ -1,0 +1,105 @@
+/* Se encarga del header, logout, login y botón flotante.
+   NO maneja restricciones de acceso (eso lo hace checkLogin.js) */
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("PizzaLine - Sitio cargado correctamente 🍕");
+
+  updateAuthArea();
+  actualizarBotonFlotante();
+});
+
+/* ========= obtener usuario guardado ========= */
+function getStoredUser() {
+  try {
+    return JSON.parse(localStorage.getItem("pizzaline_user"));
+  } catch {
+    return null;
+  }
+}
+
+/* ========= actualizar header (Hola usuario / Login) ========= */
+function updateAuthArea() {
+  const auth = document.getElementById("auth-area");
+  const linkPedidos = document.getElementById("link-pedidos");
+
+  if (!auth) return;
+
+  const user = getStoredUser();
+
+  if (user) {
+    const loginBtn = document.querySelector(".login-btn");
+    if (loginBtn) loginBtn.style.display = "none";
+
+    // Header con nombre clickeable
+    auth.innerHTML = `
+      <span id="mi-nombre" class="user-name" style="cursor:pointer; text-decoration:underline;">
+        Hola, ${user.nombre.split(" ")[0]}
+      </span>
+      <button id="logout-btn" class="small">Cerrar sesión</button>
+    `;
+
+    if (linkPedidos) linkPedidos.style.display = "inline-block";
+
+    // CLICK EN NOMBRE → perfilUsuario.html con id del usuario
+    document.getElementById("mi-nombre").addEventListener("click", () => {
+      window.location.href = "perfilUsuario.html?id=" + user.id;
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("pizzaline_user");
+      window.location.href = "index.html";
+    });
+  } else {
+    // Ya existe el botón de login en el HTML, no se necesita duplicar
+    if (linkPedidos) linkPedidos.style.display = "none";
+  }
+}
+
+/* ========= actualizar botón flotante con contador ========= */
+function actualizarBotonFlotante() {
+  const btn = document.getElementById("btn-flotante");
+  if (!btn) return;
+
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+
+  btn.textContent = total > 0 ? `🛒 (${total})` : "🛒";
+
+  btn.addEventListener("click", () => {
+    window.location.href = "carrito.html";
+  });
+}
+
+// carga de promociones
+
+const URL_PROMOS = "https://691967c59ccba073ee92d7d3.mockapi.io/promo";
+
+async function cargarPromosHome() {
+  try {
+    const resp = await fetch(URL_PROMOS);
+    if (!resp.ok) throw new Error("Error al obtener promos");
+
+    const promos = await resp.json();
+    const contenedor = document.getElementById("promos-home");
+    contenedor.innerHTML = "";
+
+    promos
+      .filter(p => p.disponible !== false) 
+      .forEach(promo => {
+        const card = document.createElement("div");
+        card.classList.add("promo-card");
+
+        card.innerHTML = `
+          <h3>${promo.titulo}</h3>
+          <p>$${promo.precio}</p>
+        `;
+
+        contenedor.appendChild(card);
+      });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+cargarPromosHome();
